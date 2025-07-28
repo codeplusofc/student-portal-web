@@ -5,11 +5,21 @@ const API = axios.create({
 });
 
 export const registerStudent = async (student: { name: string; course: string }) => {
-  const response = await API.post('/students', student);
-  return response.data;
+  try {
+    const response = await API.post('/students', student);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao registrar estudante:', error);
+    throw error;
+  }
 };
 
 export const getStudentByRegistration = async (registration: string) => {
-  const response = await API.get(`/students?registration=${registration}`);
-  return response.data;
+  try {
+    const response = await API.get(`/students?registration=${registration}`);
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao buscar estudante:', error);
+    throw error;
+  }
 };

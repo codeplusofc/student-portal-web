@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { registerStudent } from "../../student/studentService";
+import styles from './RegisterForm.module.css';
 
 type FormData = {
   name: string;
@@ -21,12 +22,12 @@ const RegisterForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Cadastro de Aluno</h2>
-      <input {...register('name')} placeholder="Nome completo" required />
-      <input {...register('course')} placeholder="Curso" required />
-      <button type="submit">Cadastrar</button>
-    </form>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
+  <h2>Cadastro de Aluno</h2>
+  <input {...register('name')} placeholder="Nome completo" required />
+  <input {...register('course')} placeholder="Curso" required />
+  <button type="submit">Cadastrar</button>
+</form>
   );
 };
 
