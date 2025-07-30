@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { getStudentByRegistration } from "../../student/studentService";
+import { getStudentByRegistration } from "../../../services/studentService";
 
 type LoginData = {
   registration: string;
