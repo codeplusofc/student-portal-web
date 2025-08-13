@@ -1,5 +1,4 @@
 import "../../styles/dashboard.css";
-import VoteSession from "./VoteSession";
 
 const Dashboard = () => {
   const aluno = {
@@ -48,9 +47,6 @@ const Dashboard = () => {
       <p>{aluno.avisoRecente}</p>
     </div>
   </section>
-
-  {/* Sessão de votação inserida aqui */}
-  <VoteSession />
 </main>
     </div>
   );
