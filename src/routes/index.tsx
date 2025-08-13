@@ -8,14 +8,9 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        {/* Autenticação */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/auth" element={<RegisterUserForm />} />
-
-        {/* Alunos */}
         <Route path="/register" element={<RegisterStudentForm />} />
-
-        {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
