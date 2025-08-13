@@ -22,7 +22,7 @@ const RegisterForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Cadastro de Aluno</h2>
+      <h2>Cadastro de Usuário</h2>
       <input {...register('name')} placeholder="Nome completo" required />
       <input {...register('course')} placeholder="Curso" required />
       <button type="submit">Cadastrar</button>
