@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/dashboard.css";
+import VoteSession from "./VoteSession";
 
 const Dashboard = () => {
   const aluno = {
@@ -29,26 +30,29 @@ const Dashboard = () => {
       </aside>
 
       <main className="main-content">
-        <header>
-          <h1>Bem-vindo, {aluno.nome}!</h1>
-          <p>Hoje é <span>{dataAtual}</span></p>
-        </header>
+  <header>
+    <h1>Bem-vindo, {aluno.nome}!</h1>
+    <p>Hoje é <span>{dataAtual}</span></p>
+  </header>
 
-        <section className="dashboard-cards">
-          <div className="card">
-            <h3>Próxima Aula</h3>
-            <p>{aluno.proximaAula}</p>
-          </div>
-          <div className="card">
-            <h3>Última Nota</h3>
-            <p>{aluno.ultimaNota}</p>
-          </div>
-          <div className="card">
-            <h3>Avisos Recentes</h3>
-            <p>{aluno.avisoRecente}</p>
-          </div>
-        </section>
-      </main>
+  <section className="dashboard-cards">
+    <div className="card">
+      <h3>Próxima Aula</h3>
+      <p>{aluno.proximaAula}</p>
+    </div>
+    <div className="card">
+      <h3>Última Nota</h3>
+      <p>{aluno.ultimaNota}</p>
+    </div>
+    <div className="card">
+      <h3>Avisos Recentes</h3>
+      <p>{aluno.avisoRecente}</p>
+    </div>
+  </section>
+
+  {/* Sessão de votação inserida aqui */}
+  <VoteSession />
+</main>
     </div>
   );
 };
