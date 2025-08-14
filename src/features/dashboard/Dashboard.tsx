@@ -13,6 +13,7 @@ const Dashboard = () => {
   });
  //add some school logo at the top
   return (
+  <div className="wrapper">
     <div className="dashboard-container">
       <aside className="sidebar">
         <ul>
@@ -27,28 +28,27 @@ const Dashboard = () => {
       </aside>
 
       <main className="main-content">
-  <header>
-    <h1>Bem-vindo, {aluno.nome}!</h1>
-    <p>Hoje é <span>{dataAtual}</span></p>
-  </header>
+        <header>
+          <h1>Bem-vindo, {aluno.nome}!</h1>
+          <p>Hoje é <span>{dataAtual}</span></p>
+        </header>
 
-  <section className="dashboard-cards">
-    <div className="card">
-      <h3>Próxima Aula</h3>
-      <p>{aluno.proximaAula}</p>
+        <section className="dashboard-cards">
+          <div className="card">
+            <h3>Próxima Aula</h3>
+            <p>{aluno.proximaAula}</p>
+          </div>
+          <div className="card">
+            <h3>Última Nota</h3>
+            <p>{aluno.ultimaNota}</p>
+          </div>
+          <div className="card">
+            <h3>Avisos Recentes</h3>
+            <p>{aluno.avisoRecente}</p>
+          </div>
+        </section>
+      </main>
     </div>
-    <div className="card">
-      <h3>Última Nota</h3>
-      <p>{aluno.ultimaNota}</p>
-    </div>
-    <div className="card">
-      <h3>Avisos Recentes</h3>
-      <p>{aluno.avisoRecente}</p>
-    </div>
-  </section>
-</main>
-    </div>
-  );
-};
-
+  </div>
+);}
 export default Dashboard;
