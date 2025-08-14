@@ -11,11 +11,10 @@ const Dashboard = () => {
   const dataAtual = new Date().toLocaleDateString("pt-BR", {
     weekday: "long", year: "numeric", month: "long", day: "numeric"
   });
-
+ //add some school logo at the top
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
-        <h2>Portal do Aluno</h2>
         <ul>
           <li><a href="#">📚 Meus Cursos</a></li>
           <li><a href="#">📝 Tarefas</a></li>
