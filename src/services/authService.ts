@@ -1,4 +1,3 @@
-// src/features/auth/services/authService.ts
 import axios from 'axios';
 
 const API = axios.create({
