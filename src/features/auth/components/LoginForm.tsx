@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { getStudentByRegistration } from "../../../services/studentService";
+import { Link } from "react-router-dom";
+import "../../../styles/login.css";
+
+
 
 type LoginData = {
   registration: string;
@@ -23,9 +27,17 @@ const LoginForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h2>Login do Aluno</h2>
-      <input {...register('registration')} placeholder="Matrícula" required />
+      <input {...register('registration')} placeholder="Email" required />
+      <input {...register('registration')} placeholder="Senha" required />
       <button type="submit">Entrar</button>
       {studentName && <p>Bem-vindo, {studentName}!</p>}
+
+      <p className="signup-text">
+  Não tem conta?{" "}
+  <Link to="/auth" className="signup-link">
+    Cadastre-se
+  </Link>
+</p>
     </form>
   );
 };

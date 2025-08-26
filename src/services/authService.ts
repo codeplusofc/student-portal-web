@@ -1,8 +1,7 @@
-// src/features/auth/services/authService.ts
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'https://student-portal-core-api.onrender.com/api'
 });
 
 export interface UserRequest {
