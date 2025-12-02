@@ -1,0 +1,124 @@
+.recent-materials-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.view-library-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.view-library-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.materials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.material-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.material-icon {
+  font-size: 28px;
+  min-width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 10px;
+}
+
+.material-details {
+  flex: 1;
+}
+
+.material-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.material-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.material-category {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.material-download-btn {
+  background: #f1f5f9;
+  color: #475569;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-download-btn:hover {
+  background: #e2e8f0;
+  color: #1e3a8a;
+  transform: scale(1.1);
+}
+
+.no-materials {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .material-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .material-meta {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .material-download-btn {
+    align-self: center;
+  }
+}
