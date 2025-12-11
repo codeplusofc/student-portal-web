@@ -1,44 +1,139 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { getStudentByRegistration } from "../../../services/studentService";
-import { Link } from "react-router-dom";
-import "../../../styles/login.css";
-
-
-
-type LoginData = {
-  registration: string;
-};
+import { useNavigate } from 'react-router-dom';
+import Button from '../../../shared/components/ui/Button';
+import '../../../styles/pages/auth.css';
 
 const LoginForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<LoginData>();
-  const [studentName, setStudentName] = useState<string | null>(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const onSubmit = async (data: LoginData) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      setError('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
     try {
-      const student = await getStudentByRegistration(data.registration);
-      setStudentName(student.name);
+      // Simular delay de rede
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      // Mock user data
+      const mockUser = {
+        id: '1',
+        name: 'João Silva',
+        email: email,
+        role: 'student',
+        registration: '20230001',
+        course: 'Ciência da Computação'
+      };
+
+      localStorage.setItem('user', JSON.stringify(mockUser));
+      localStorage.setItem('access_token', 'mock-jwt-token');
+
+      navigate('/dashboard');
+
     } catch (err) {
-      alert('Matrícula não encontrada.');
-      setStudentName(null);
+      setError('Email ou senha incorretos. Tente novamente.');
+    } finally {
+      setLoading(false);
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>Login do Aluno</h2>
-      <input {...register('registration')} placeholder="Email" required />
-      <input {...register('registration')} placeholder="Senha" required />
-      <button type="submit">Entrar</button>
-      {studentName && <p>Bem-vindo, {studentName}!</p>}
+  const handleRegisterClick = () => {
+    navigate('/cadastro');
+  };
 
-      <p className="signup-text">
-  Não tem conta?{" "}
-  <Link to="/auth" className="signup-link">
-    Cadastre-se
-  </Link>
-</p>
-    </form>
+  return (
+    <div className="login-container">
+      <div className="login-box">
+        <div className="login-header">
+          <h1>🎓 Portal do Aluno</h1>
+          <p>Faça login para acessar o portal</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label htmlFor="loginEmail" className="form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="seu@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
+              className="form-input"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="loginPassword" className="form-label">
+              Senha
+            </label>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Sua senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
+              className="form-input"
+            />
+          </div>
+
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
+
+          <div className="form-actions">
+            <Button
+              type="submit"
+              variant="primary"
+              size="large"
+              fullWidth
+              loading={loading}
+              disabled={loading}
+            >
+              {loading ? 'Entrando...' : 'Entrar'}
+            </Button>
+
+            <div className="divider">
+              <span>ou</span>
+            </div>
+
+            <Button
+              type="button"
+              variant="outline"
+              size="large"
+              fullWidth
+              onClick={handleRegisterClick}
+              disabled={loading}
+            >
+              Criar nova conta
+            </Button>
+          </div>
+
+          <div className="login-footer">
+            <p className="forgot-password">
+              <a href="/recuperar-senha" className="footer-link">
+                Esqueceu sua senha?
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

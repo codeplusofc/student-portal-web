@@ -1,0 +1,38 @@
+:root {
+  /* Cores principais - mantendo do seu HTML */
+  --primary-blue: #1e3a8a;
+  --light-blue: #3b82f6;
+  --white: #ffffff;
+  --light-gray: #f3f4f6;
+  --border-gray: #e5e7eb;
+  --text-dark: #1f2937;
+  --text-gray: #6b7280;
+
+  /* Cores de estado */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #dc2626;
+  --info: #3b82f6;
+
+  /* Sombras - mantendo do seu HTML */
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  /* Bordas */
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 12px;
+
+  /* Transições */
+  --transition-fast: 150ms ease;
+  --transition: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Layout */
+  --header-height: 70px;
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 70px;
+}

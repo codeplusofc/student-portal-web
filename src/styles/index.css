@@ -1,0 +1,8 @@
+[file name]: index.css (substituir o existente)
+[file content begin]
+/* Este arquivo será removido - usar globals.css em vez disso */
+/* Mantendo apenas para compatibilidade temporária */
+
+/* Redirecionando para o novo sistema de design */
+@import './styles/design-system/globals.css';
+[file content end]
